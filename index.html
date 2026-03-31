@@ -4,328 +4,936 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Krishna Maniyar | Data Analyst Portfolio</title>
+  <meta name="description" content="Krishna Maniyar portfolio showcasing data analytics experience, projects, technical skills, and certifications." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
   <style>
+    :root {
+      --bg: #fffaf3;
+      --bg-soft: #f8f4ff;
+      --bg-mint: #effcf8;
+      --surface: rgba(255, 255, 255, 0.78);
+      --surface-strong: #ffffff;
+      --text: #182133;
+      --muted: #61708a;
+      --line: rgba(86, 96, 125, 0.14);
+      --primary: #6c63ff;
+      --primary-2: #8c7bff;
+      --secondary: #14b8a6;
+      --accent: #f59e0b;
+      --rose: #f472b6;
+      --shadow: 0 20px 60px rgba(67, 78, 107, 0.12);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1200px;
+    }
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+    }
+
+    html {
       scroll-behavior: smooth;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
+      font-family: 'Inter', Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(108, 99, 255, 0.16), transparent 26%),
+        radial-gradient(circle at 92% 10%, rgba(20, 184, 166, 0.16), transparent 20%),
+        radial-gradient(circle at 88% 85%, rgba(245, 158, 11, 0.13), transparent 20%),
+        linear-gradient(180deg, #fffdf8 0%, #f5f7ff 50%, #fffaf7 100%);
+      min-height: 100vh;
       line-height: 1.6;
     }
 
     a {
-      color: #38bdf8;
       text-decoration: none;
+      color: inherit;
     }
 
-    a:hover {
-      text-decoration: underline;
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: auto;
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
     }
 
-    header {
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      padding: 80px 0 60px;
-      text-align: center;
+    .glass,
+    .section-card,
+    .timeline-card,
+    .project-card,
+    .contact-card,
+    .skill-group,
+    .cert-card {
+      background: var(--surface);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.7);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
     }
 
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-      color: #f8fafc;
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(86, 96, 125, 0.08);
     }
 
-    header h2 {
-      font-size: 1.4rem;
-      color: #38bdf8;
-      font-weight: normal;
-      margin-bottom: 20px;
-    }
-
-    header p {
-      max-width: 700px;
-      margin: auto;
-      font-size: 1.05rem;
-      color: #cbd5e1;
-    }
-
-    .btn-group {
-      margin-top: 25px;
-    }
-
-    .btn {
-      display: inline-block;
-      margin: 8px;
-      padding: 12px 22px;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .btn-primary {
-      background: #38bdf8;
-      color: #0f172a;
-    }
-
-    .btn-primary:hover {
-      background: #0ea5e9;
-      text-decoration: none;
-    }
-
-    .btn-secondary {
-      border: 1px solid #38bdf8;
-      color: #38bdf8;
-    }
-
-    .btn-secondary:hover {
-      background: #1e293b;
-      text-decoration: none;
-    }
-
-    section {
-      padding: 60px 0;
-    }
-
-    section h3 {
-      font-size: 2rem;
-      margin-bottom: 25px;
-      color: #f8fafc;
-      border-left: 5px solid #38bdf8;
-      padding-left: 12px;
-    }
-
-    .card {
-      background: #1e293b;
-      padding: 22px;
-      border-radius: 14px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-    }
-
-    .card h4 {
-      color: #f8fafc;
-      margin-bottom: 8px;
-      font-size: 1.2rem;
-    }
-
-    .card p {
-      color: #cbd5e1;
-      margin-bottom: 10px;
-    }
-
-    .card ul {
-      margin-left: 20px;
-      color: #cbd5e1;
-    }
-
-    .skills {
+    .nav-inner {
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
     }
 
-    .skill {
-      background: #1e293b;
-      color: #e2e8f0;
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: 1px solid #334155;
+    .brand {
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+
+    .brand span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
       font-size: 0.95rem;
     }
 
-    .projects-grid {
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      padding: 54px 0 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
     }
 
-    .project-card {
-      background: #1e293b;
-      border-radius: 14px;
-      padding: 22px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-      transition: transform 0.2s ease;
+    .hero-copy {
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .project-card:hover {
-      transform: translateY(-5px);
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -60px;
+      bottom: -80px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(108, 99, 255, 0.16), transparent 72%);
+      pointer-events: none;
     }
 
-    .project-card h4 {
-      margin-bottom: 10px;
-      color: #f8fafc;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(108, 99, 255, 0.1);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-bottom: 18px;
     }
 
-    .project-card p {
-      color: #cbd5e1;
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.8rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
       margin-bottom: 14px;
     }
 
+    .gradient {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-role {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #31415d;
+      margin-bottom: 16px;
+    }
+
+    .hero-summary {
+      color: var(--muted);
+      max-width: 64ch;
+      margin-bottom: 22px;
+      font-size: 1rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(86, 96, 125, 0.1);
+      color: #34425f;
+      box-shadow: 0 10px 20px rgba(94, 112, 151, 0.08);
+      font-size: 0.92rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: 0.22s ease;
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: 0 18px 32px rgba(108, 99, 255, 0.18);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(86, 96, 125, 0.12);
+    }
+
+    .btn-secondary:hover { background: #fff; }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .metric {
+      background: rgba(255,255,255,0.75);
+      border: 1px solid rgba(86, 96, 125, 0.1);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.45rem;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .metric span { color: var(--muted); font-size: 0.92rem; }
+
+    .hero-photo {
+      padding: 18px;
+      position: relative;
+    }
+
+    .photo-shell {
+      position: relative;
+      min-height: 580px;
+      border-radius: 26px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #f9fdff, #e7eeff);
+      border: 1px solid rgba(255,255,255,0.75);
+    }
+
+    .photo-shell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .photo-badge {
+      position: absolute;
+      right: 28px;
+      bottom: 28px;
+      max-width: 240px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(86, 96, 125, 0.12);
+      box-shadow: 0 16px 34px rgba(67, 78, 107, 0.16);
+    }
+
+    .photo-badge strong { display: block; margin-bottom: 4px; }
+    .photo-badge span { color: var(--muted); font-size: 0.92rem; }
+
+    section { padding: 28px 0; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: clamp(1.55rem, 2.6vw, 2.1rem);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 66ch;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .section-card { padding: 28px; }
+
+    .section-card p { color: var(--muted); }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .mini-box {
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(86, 96, 125, 0.1);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .mini-box strong { display: block; margin-bottom: 6px; }
+    .mini-box span { color: var(--muted); font-size: 0.93rem; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-group { padding: 22px; }
+    .skill-group h3 { font-size: 1.04rem; margin-bottom: 14px; }
+
+    .badge-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.86);
+      border: 1px solid rgba(86, 96, 125, 0.1);
+      box-shadow: 0 8px 16px rgba(101, 113, 143, 0.06);
+      color: #2f3b56;
+      font-size: 0.92rem;
+      white-space: nowrap;
+    }
+
+    .skill-badge i {
+      font-size: 1.12rem;
+      color: var(--primary);
+    }
+
+    .skill-logo {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-card,
+    .project-card,
+    .contact-card,
+    .cert-card {
+      padding: 24px;
+    }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .role, .project-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .company, .project-type { color: var(--muted); }
+
+    .date {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(20,184,166,0.12);
+      border: 1px solid rgba(20,184,166,0.12);
+      color: #0f6f70;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .points {
+      padding-left: 18px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .points li + li { margin-top: 8px; }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .link-chip {
+      padding: 9px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(86, 96, 125, 0.12);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .link-chip:hover { background: #fff; }
+
+    .cert-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .contact-card strong,
+    .cert-card strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .contact-card span,
+    .contact-card a,
+    .cert-card span { color: var(--muted); }
+
     footer {
       text-align: center;
-      padding: 25px 0;
-      border-top: 1px solid #334155;
-      color: #94a3b8;
+      color: var(--muted);
+      padding: 34px 0 48px;
       font-size: 0.95rem;
     }
 
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.2rem;
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .about-grid,
+      .skills-grid,
+      .projects-grid,
+      .cert-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
       }
 
-      header h2 {
-        font-size: 1.1rem;
-      }
+      .photo-shell { min-height: 420px; }
+    }
 
-      section h3 {
-        font-size: 1.6rem;
-      }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .hero-copy,
+      .section-card,
+      .timeline-card,
+      .project-card,
+      .contact-card,
+      .skill-group,
+      .cert-card { padding: 20px; }
+      .metrics,
+      .mini-grid { grid-template-columns: 1fr; }
+      .photo-badge { position: static; margin-top: 14px; max-width: 100%; }
     }
   </style>
 </head>
 <body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Krishna <span>Maniyar</span></div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-  <header>
-    <div class="container">
-      <h1>Krishna Maniyar</h1>
-      <h2>Data Analyst | SQL • Power BI • Data Visualization</h2>
-      <p>
-        I specialize in analyzing data to generate actionable insights and building dashboards
-        that support business decision-making. I am currently pursuing an MS in Data Science at Pace University
-        and actively seeking Data Analyst opportunities.
-      </p>
-      <div class="btn-group">
-        <a class="btn btn-primary" href="mailto:krishnamaniyarkm22@gmail.com">Contact Me</a>
-        <a class="btn btn-secondary" href="https://www.linkedin.com/in/krishnamaniyar/" target="_blank">LinkedIn</a>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="glass hero-copy">
+        <div class="eyebrow">✨ Creative data portfolio</div>
+        <h1>Krishna <span class="gradient">Maniyar</span></h1>
+        <div class="hero-role">Data Analyst · SQL · Power BI · Python · Data Storytelling</div>
+        <p class="hero-summary">
+          I build dashboards, analyze business data, and turn complex information into clear insights. My background spans healthcare and banking analytics, backed by hands-on projects in forecasting, machine learning, and business intelligence.
+        </p>
+
+        <div class="pill-row">
+          <div class="pill">🎓 MS in Data Science @ Pace University</div>
+          <div class="pill">💼 2+ years experience</div>
+          <div class="pill">🏥 Tata Medical & Diagnostics</div>
+          <div class="pill">🏦 Wipro / ICICI Bank</div>
+          <div class="pill">📍 Jersey City, NJ</div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:krishnamaniyarkm22@gmail.com">📩 Contact Me</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/krishnamaniyar/" target="_blank">LinkedIn</a>
+          <a class="btn btn-secondary" href="https://github.com/krishnamaniyar2209" target="_blank">GitHub</a>
+        </div>
+
+        <div class="metrics">
+          <div class="metric">
+            <strong>2+</strong>
+            <span>Years in analytics-focused roles</span>
+          </div>
+          <div class="metric">
+            <strong>5</strong>
+            <span>Live GitHub portfolio projects</span>
+          </div>
+          <div class="metric">
+            <strong>10+</strong>
+            <span>Healthcare services covered in BI work</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass hero-photo">
+        <div class="photo-shell">
+          <img src="profile.jpeg" alt="Krishna Maniyar portrait" />
+        </div>
+        <div class="photo-badge">
+          <strong>Open to Data Analyst roles</strong>
+          <span>Focused on reporting, dashboarding, SQL analysis, business insights, and stakeholder-ready analytics.</span>
+        </div>
       </div>
     </div>
   </header>
 
   <section id="about">
     <div class="container">
-      <h3>About Me</h3>
-      <div class="card">
-        <p><strong>MS in Data Science</strong> at Pace University</p>
-        <p><strong>Data Analytics & BI Intern</strong> at Tata Medical & Diagnostics</p>
-        <p><strong>Former Project Engineer</strong> at Wipro with 2+ years of experience</p>
-        <p><strong>Location:</strong> Jersey City, NJ</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="experience">
-    <div class="container">
-      <h3>Experience</h3>
-
-      <div class="card">
-        <h4>Data Analytics & Business Intelligence Intern — Tata Medical & Diagnostics</h4>
-        <p>Jun 2025 – Aug 2025</p>
-        <ul>
-          <li>Developed Power BI dashboards integrating multi-source SQL datasets across 10+ healthcare services.</li>
-          <li>Engineered DAX KPIs for revenue-cost analysis, segmentation, and performance tracking.</li>
-          <li>Reduced manual reporting time by around 20% through automation and standardized pipelines.</li>
-        </ul>
+      <div class="section-head">
+        <div>
+          <div class="section-title">About Me</div>
+          <div class="section-subtitle">A more polished, portfolio-style introduction with strong analyst positioning.</div>
+        </div>
       </div>
 
-      <div class="card">
-        <h4>Project Engineer – Data Analysis & Application Support — Wipro</h4>
-        <p>May 2022 – May 2024</p>
-        <ul>
-          <li>Analyzed customer credit and loan datasets using Oracle SQL to identify discrepancies.</li>
-          <li>Resolved issues related to loan eligibility, data integrity, and validation workflows.</li>
-          <li>Supported accurate and compliant banking operations through structured data analysis.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="container">
-      <h3>Projects</h3>
-      <div class="projects-grid">
-
-        <div class="project-card">
-          <h4>Sales Performance Dashboard</h4>
-          <p>Interactive Power BI dashboard analyzing revenue, profit, and customer segmentation with DAX-based KPIs.</p>
-          <a href="https://github.com/krishnamaniyar2209/Sales-Performance-Dashboard-PowerBI" target="_blank">View Project</a>
+      <div class="about-grid">
+        <div class="section-card">
+          <p>
+            I am a Data Analyst focused on turning raw data into clean, decision-ready insights. My industry experience includes building Power BI dashboards, analyzing SQL-based data, validating reporting logic, and supporting cross-functional teams in banking and healthcare environments.
+          </p>
+          <br>
+          <p>
+            Beyond work experience, I have built projects in forecasting, predictive analytics, healthcare modeling, and business intelligence using Python, Power BI, and machine learning tools. I enjoy combining technical depth with presentation quality so analytics feels useful, clear, and impactful.
+          </p>
         </div>
 
-        <div class="project-card">
-          <h4>NYC Electricity Forecasting</h4>
-          <p>Time-series forecasting project using Prophet to predict long-term electricity consumption trends.</p>
-          <a href="https://github.com/krishnamaniyar2209/nyc-electricity-forecasting-prophet" target="_blank">View Project</a>
+        <div class="section-card">
+          <div class="mini-grid">
+            <div class="mini-box">
+              <strong>Primary Focus</strong>
+              <span>Data Analyst roles involving SQL, dashboards, and reporting.</span>
+            </div>
+            <div class="mini-box">
+              <strong>Industries</strong>
+              <span>Healthcare analytics, banking operations, business intelligence.</span>
+            </div>
+            <div class="mini-box">
+              <strong>Strength</strong>
+              <span>Turning technical work into recruiter-friendly portfolio stories.</span>
+            </div>
+            <div class="mini-box">
+              <strong>Approach</strong>
+              <span>Insight-driven, visually clear, and business-focused.</span>
+            </div>
+          </div>
         </div>
-
-        <div class="project-card">
-          <h4>Bank Marketing Classification</h4>
-          <p>Machine learning analysis on 41K+ customer records using Logistic Regression, Random Forest, and XGBoost.</p>
-          <a href="https://github.com/krishnamaniyar2209/bank-marketing-classification" target="_blank">View Project</a>
-        </div>
-
-        <div class="project-card">
-          <h4>Electric Vehicle Adoption Analysis</h4>
-          <p>Exploratory analysis and predictive modeling of electric vehicle adoption trends using Python.</p>
-          <a href="https://github.com/krishnamaniyar2209/Electric-Vehicle-Adoption-Analysis" target="_blank">View Project</a>
-        </div>
-
-        <div class="project-card">
-          <h4>Diabetes Progression Prediction</h4>
-          <p>Regression-based healthcare analytics project focused on predicting diabetes progression outcomes.</p>
-          <a href="https://github.com/krishnamaniyar2209/diabetes-regression-analysis" target="_blank">View Project</a>
-        </div>
-
       </div>
     </div>
   </section>
 
   <section id="skills">
     <div class="container">
-      <h3>Skills</h3>
-      <div class="skills">
-        <span class="skill">SQL</span>
-        <span class="skill">Power BI</span>
-        <span class="skill">Python</span>
-        <span class="skill">Excel</span>
-        <span class="skill">Tableau</span>
-        <span class="skill">Pandas</span>
-        <span class="skill">NumPy</span>
-        <span class="skill">DAX</span>
-        <span class="skill">EDA</span>
-        <span class="skill">Data Cleaning</span>
-        <span class="skill">Forecasting</span>
-        <span class="skill">Machine Learning</span>
+      <div class="section-head">
+        <div>
+          <div class="section-title">Technical Skills</div>
+          <div class="section-subtitle">All skills from your resume are included, with matching logos where available.</div>
+        </div>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>💻 Programming</h3>
+          <div class="badge-wrap">
+            <span class="skill-badge"><i class="devicon-python-plain colored"></i>Python</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/oracle/F80000" alt="Oracle">Oracle SQL</span>
+            <span class="skill-badge"><i class="devicon-mysql-original colored"></i>MySQL</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/postgresql/4169E1" alt="SQL">SQL</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>📊 Data Analysis & Visualization</h3>
+          <div class="badge-wrap">
+            <span class="skill-badge"><i class="devicon-pandas-original colored"></i>Pandas</span>
+            <span class="skill-badge"><i class="devicon-numpy-original colored"></i>NumPy</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/powerbi/F2C811" alt="Power BI">Power BI</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/tableau/E97627" alt="Tableau">Tableau</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/microsoftexcel/217346" alt="Excel">Excel</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>🤖 Machine Learning</h3>
+          <div class="badge-wrap">
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/scikitlearn/F7931E" alt="Scikit-learn">Scikit-learn</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/tensorflow/FF6F00" alt="TensorFlow">TensorFlow</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/pytorch/EE4C2C" alt="PyTorch">PyTorch</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/keras/D00000" alt="CNNs">CNNs</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/meta/0467DF" alt="Forecasting">Time Series Forecasting</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>⚙️ Data Engineering & Tools</h3>
+          <div class="badge-wrap">
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/fastapi/009688" alt="FastAPI">FastAPI</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/openapiinitiative/6BA539" alt="REST APIs">REST APIs</span>
+            <span class="skill-badge"><i class="devicon-git-plain colored"></i>Git</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/jupyter/F37626" alt="Jupyter">Jupyter Notebook</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>🧠 Concepts</h3>
+          <div class="badge-wrap">
+            <span class="skill-badge">ETL</span>
+            <span class="skill-badge">Data Cleaning</span>
+            <span class="skill-badge">Statistical Analysis</span>
+            <span class="skill-badge">Feature Engineering</span>
+            <span class="skill-badge">Dashboard Development</span>
+            <span class="skill-badge">EDA</span>
+            <span class="skill-badge">Business Insights</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>🎯 Work Experience Tools</h3>
+          <div class="badge-wrap">
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/powerbi/F2C811" alt="Power BI">Power BI</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/oracle/F80000" alt="Oracle">Oracle SQL</span>
+            <span class="skill-badge"><i class="devicon-mysql-original colored"></i>MySQL</span>
+            <span class="skill-badge">DAX</span>
+            <span class="skill-badge">Data Validation</span>
+            <span class="skill-badge">Reporting Automation</span>
+            <span class="skill-badge">Stakeholder Collaboration</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-title">Professional Experience</div>
+          <div class="section-subtitle">Experience cards styled like a modern portfolio, with the exact tools used in each role.</div>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-card">
+          <div class="card-head">
+            <div>
+              <div class="role">Data Analytics & Business Intelligence Intern</div>
+              <div class="company">Tata Medical & Diagnostics Ltd</div>
+            </div>
+            <div class="date">Jun 2025 – Aug 2025</div>
+          </div>
+          <ul class="points">
+            <li>Developed Power BI dashboards integrating multi-source SQL datasets across 10+ healthcare services.</li>
+            <li>Engineered advanced DAX KPIs for revenue-cost analysis, segmentation, and service performance tracking.</li>
+            <li>Reduced manual reporting time by about 20% through automation and standardized reporting pipelines.</li>
+            <li>Collaborated with cross-functional teams to maintain data accuracy and reporting consistency.</li>
+          </ul>
+          <div class="badge-wrap">
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/powerbi/F2C811" alt="Power BI">Power BI</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/postgresql/4169E1" alt="SQL">SQL</span>
+            <span class="skill-badge">DAX</span>
+            <span class="skill-badge">KPI Reporting</span>
+            <span class="skill-badge">Automation</span>
+            <span class="skill-badge">Healthcare Analytics</span>
+          </div>
+        </div>
+
+        <div class="timeline-card">
+          <div class="card-head">
+            <div>
+              <div class="role">Project Engineer – Data Analysis & Application Support</div>
+              <div class="company">Wipro Ltd (Client: ICICI Bank)</div>
+            </div>
+            <div class="date">May 2022 – May 2024</div>
+          </div>
+          <ul class="points">
+            <li>Analyzed customer credit and loan datasets using Oracle SQL to identify system discrepancies.</li>
+            <li>Resolved issues related to loan eligibility, PAN records, and customer data integrity.</li>
+            <li>Validated SQL queries and system updates before secure production deployment.</li>
+            <li>Improved data quality and supported compliance with banking regulations.</li>
+          </ul>
+          <div class="badge-wrap">
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/oracle/F80000" alt="Oracle">Oracle SQL</span>
+            <span class="skill-badge">Banking Analytics</span>
+            <span class="skill-badge">Data Validation</span>
+            <span class="skill-badge">Compliance</span>
+            <span class="skill-badge">Issue Analysis</span>
+            <span class="skill-badge">Production Support</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-title">Featured Projects</div>
+          <div class="section-subtitle">A portfolio-inspired card layout with project-specific tech logos and cleaner visual hierarchy.</div>
+        </div>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="card-head">
+            <div>
+              <div class="project-title">Sales Performance Dashboard</div>
+              <div class="project-type">Business Intelligence Project</div>
+            </div>
+          </div>
+          <p>Interactive Power BI dashboard for revenue, profit, and customer segmentation with business-focused reporting and KPI tracking.</p>
+          <div class="badge-wrap">
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/powerbi/F2C811" alt="Power BI">Power BI</span>
+            <span class="skill-badge">DAX</span>
+            <span class="skill-badge">Dashboard Development</span>
+            <span class="skill-badge">Business Insights</span>
+          </div>
+          <div class="project-links">
+            <a class="link-chip" href="https://github.com/krishnamaniyar2209/Sales-Performance-Dashboard-PowerBI" target="_blank">View GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-head">
+            <div>
+              <div class="project-title">NYC Electricity Forecasting</div>
+              <div class="project-type">Time Series Forecasting</div>
+            </div>
+          </div>
+          <p>Forecasted electricity consumption trends using Prophet after data cleaning, exploratory analysis, and long-term trend evaluation.</p>
+          <div class="badge-wrap">
+            <span class="skill-badge"><i class="devicon-python-plain colored"></i>Python</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/jupyter/F37626" alt="Jupyter">Jupyter</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/meta/0467DF" alt="Forecasting">Forecasting</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/pandas/150458" alt="Pandas">Pandas</span>
+          </div>
+          <div class="project-links">
+            <a class="link-chip" href="https://github.com/krishnamaniyar2209/nyc-electricity-forecasting-prophet" target="_blank">View GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-head">
+            <div>
+              <div class="project-title">Bank Marketing Classification</div>
+              <div class="project-type">Predictive Analytics</div>
+            </div>
+          </div>
+          <p>Analyzed 41K+ customer records and compared multiple classification models to predict term deposit subscriptions using strong evaluation metrics.</p>
+          <div class="badge-wrap">
+            <span class="skill-badge"><i class="devicon-python-plain colored"></i>Python</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/scikitlearn/F7931E" alt="Scikit-learn">Scikit-learn</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/xgboost/006B75" alt="XGBoost">XGBoost</span>
+            <span class="skill-badge">Classification</span>
+          </div>
+          <div class="project-links">
+            <a class="link-chip" href="https://github.com/krishnamaniyar2209/bank-marketing-classification" target="_blank">View GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-head">
+            <div>
+              <div class="project-title">Electric Vehicle Adoption Analysis</div>
+              <div class="project-type">Trend Analysis & Prediction</div>
+            </div>
+          </div>
+          <p>Explored EV adoption patterns and built predictive analysis workflows to understand growth trends and future behavior.</p>
+          <div class="badge-wrap">
+            <span class="skill-badge"><i class="devicon-python-plain colored"></i>Python</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/pandas/150458" alt="Pandas">Pandas</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/numpy/013243" alt="NumPy">NumPy</span>
+            <span class="skill-badge">EDA</span>
+          </div>
+          <div class="project-links">
+            <a class="link-chip" href="https://github.com/krishnamaniyar2209/Electric-Vehicle-Adoption-Analysis" target="_blank">View GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-head">
+            <div>
+              <div class="project-title">Diabetes Progression Prediction</div>
+              <div class="project-type">Healthcare Analytics</div>
+            </div>
+          </div>
+          <p>Built regression models on healthcare data to estimate disease progression and evaluate predictive performance.</p>
+          <div class="badge-wrap">
+            <span class="skill-badge"><i class="devicon-python-plain colored"></i>Python</span>
+            <span class="skill-badge"><img class="skill-logo" src="https://cdn.simpleicons.org/scikitlearn/F7931E" alt="Scikit-learn">Scikit-learn</span>
+            <span class="skill-badge">Regression</span>
+            <span class="skill-badge">Healthcare Data</span>
+          </div>
+          <div class="project-links">
+            <a class="link-chip" href="https://github.com/krishnamaniyar2209/diabetes-regression-analysis" target="_blank">View GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-title">Certifications</div>
+          <div class="section-subtitle">Credentials included from your resume.</div>
+        </div>
+      </div>
+
+      <div class="cert-grid">
+        <div class="cert-card">
+          <strong>Microsoft Certified: Azure Fundamentals</strong>
+          <span>Cloud fundamentals certification covering core Azure services and concepts.</span>
+        </div>
+        <div class="cert-card">
+          <strong>Google Data Analytics Professional Certificate</strong>
+          <span>Foundations: Data, Data, Everywhere (Coursera).</span>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="contact">
     <div class="container">
-      <h3>Contact</h3>
-      <div class="card">
-        <p><strong>Email:</strong> <a href="mailto:krishnamaniyarkm22@gmail.com">krishnamaniyarkm22@gmail.com</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/krishnamaniyar/" target="_blank">linkedin.com/in/krishnamaniyar</a></p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/krishnamaniyar2209" target="_blank">github.com/krishnamaniyar2209</a></p>
+      <div class="section-head">
+        <div>
+          <div class="section-title">Let’s Connect</div>
+          <div class="section-subtitle">Available for internships, full-time roles, and analytics opportunities.</div>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <strong>Email</strong>
+          <a href="mailto:krishnamaniyarkm22@gmail.com">krishnamaniyarkm22@gmail.com</a>
+        </div>
+        <div class="contact-card">
+          <strong>LinkedIn</strong>
+          <a href="https://www.linkedin.com/in/krishnamaniyar/" target="_blank">linkedin.com/in/krishnamaniyar</a>
+        </div>
+        <div class="contact-card">
+          <strong>GitHub</strong>
+          <a href="https://github.com/krishnamaniyar2209" target="_blank">github.com/krishnamaniyar2209</a>
+        </div>
+        <div class="contact-card">
+          <strong>Location</strong>
+          <span>Jersey City, NJ</span>
+        </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="container">
-      <p>© 2026 Krishna Maniyar | Data Analyst Portfolio</p>
-    </div>
+    © 2026 Krishna Maniyar · Creative Data Analyst Portfolio
   </footer>
-
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Krishna Maniyar | Data Analyst</title>
-  <meta name="description" content="Krishna Maniyar — Data Analyst portfolio. SQL, Power BI, Python, healthcare and banking analytics."/>
+  <meta name="description" content="Krishna Maniyar — Data Analyst portfolio. Python, SQL, Power BI, Azure. Healthcare claims and financial reconciliation analytics, plus 12 end-to-end projects in GenAI, deep learning, forecasting and BI."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -114,14 +114,17 @@
     .timeline{display:grid;gap:2px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
     .timeline-card{background:var(--bg2);padding:32px;transition:background .2s}
     .timeline-card:hover{background:var(--bg3)}
-    .t-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+    .t-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:12px}
     .t-role{font-family:var(--serif);font-size:1.25rem;color:var(--text);margin-bottom:4px;letter-spacing:-.01em}
     .t-company{font-size:.82rem;color:var(--teal);font-family:var(--mono)}
     .t-date{font-family:var(--mono);font-size:.72rem;color:var(--amber);background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);padding:6px 12px;border-radius:4px;white-space:nowrap;flex-shrink:0}
+    .t-project{font-family:var(--mono);font-size:.72rem;color:var(--muted2);letter-spacing:.02em;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+    .t-project span{color:var(--muted)}
     .t-points{list-style:none;margin-bottom:20px}
     .t-points li{font-size:.9rem;color:var(--muted);padding:7px 0 7px 20px;position:relative;border-bottom:1px solid var(--border);font-weight:300;line-height:1.65}
     .t-points li:last-child{border-bottom:none}
     .t-points li::before{content:'→';position:absolute;left:0;color:var(--teal);font-size:.76rem}
+    .t-points li strong{color:var(--text);font-weight:500}
 
     /* PROJECTS */
     .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -136,6 +139,17 @@
     .proj-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:14px;border-top:1px solid var(--border)}
     .link-chip{font-family:var(--mono);font-size:.7rem;padding:5px 11px;border-radius:4px;border:1px solid var(--border2);color:var(--muted);letter-spacing:.03em;transition:all .18s}
     .link-chip:hover{border-color:var(--teal);color:var(--teal);background:rgba(0,212,170,.06)}
+    .proj-more{margin-bottom:14px}
+    .proj-more summary{font-family:var(--mono);font-size:.7rem;color:var(--teal);cursor:pointer;letter-spacing:.05em;list-style:none;display:flex;align-items:center;gap:7px;user-select:none}
+    .proj-more summary::-webkit-details-marker{display:none}
+    .proj-more summary::before{content:'▸';transition:transform .2s;font-size:.72rem}
+    .proj-more[open] summary::before{transform:rotate(90deg)}
+    .proj-more summary:hover{color:#fff}
+    .proj-more ul{list-style:none;margin-top:10px}
+    .proj-more li{font-size:.8rem;color:var(--muted);padding:6px 0 6px 16px;position:relative;font-weight:300;line-height:1.6;border-bottom:1px solid var(--border)}
+    .proj-more li:last-child{border-bottom:none}
+    .proj-more li::before{content:'—';position:absolute;left:0;color:var(--teal2);font-size:.7rem}
+    .proj-more li strong{color:var(--text);font-weight:500}
 
     /* CERTS */
     .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -146,6 +160,14 @@
     .cert-issuer{font-family:var(--mono);font-size:.65rem;color:var(--amber);letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px}
     .cert-name{font-size:.93rem;color:var(--text);font-weight:500;line-height:1.4;margin-bottom:8px}
     .cert-detail{font-size:.78rem;color:var(--muted);font-weight:300}
+
+    /* EDUCATION */
+    .edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .edu-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:24px;transition:all .2s}
+    .edu-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+    .edu-degree{font-family:var(--serif);font-size:1.1rem;color:var(--text);margin-bottom:6px;letter-spacing:-.01em}
+    .edu-school{font-family:var(--mono);font-size:.76rem;color:var(--teal);margin-bottom:4px}
+    .edu-loc{font-size:.78rem;color:var(--muted);font-weight:300}
 
     /* CONTACT */
     .contact-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
@@ -178,6 +200,7 @@
       .about-grid{grid-template-columns:1fr}
       .skills-grid{grid-template-columns:repeat(2,1fr)}
       .contact-grid{grid-template-columns:repeat(2,1fr)}
+      .edu-grid{grid-template-columns:1fr}
     }
     @media(max-width:768px){
       .container{width:min(calc(100% - 28px),var(--max))}
@@ -238,24 +261,24 @@
     <div>
       <div class="hero-tag">DATA ANALYST PORTFOLIO</div>
       <h1 class="hero-name">Krishna<br><em>Maniyar</em></h1>
-      <div class="hero-role">SQL · POWER BI · DAX · PYTHON · MACHINE LEARNING · GEN AI</div>
-      <p class="hero-bio">I turn <strong>raw data into business decisions</strong> — building dashboards, running SQL analysis, and delivering insights that stick. Background in <strong>healthcare BI</strong> and <strong>banking analytics</strong>, with hands-on projects across generative AI, forecasting, predictive modeling, and deep learning.</p>
+      <div class="hero-role">PYTHON · SQL · POWER BI · AZURE · MACHINE LEARNING · GEN AI</div>
+      <p class="hero-bio">Data Analyst with <strong>3+ years across healthcare and financial analytics</strong> — building cloud reporting pipelines, reconciling transactions at scale, and turning claims and revenue data into decisions people act on. Alongside that, <strong>12 end-to-end projects</strong> in generative AI, deep learning, forecasting, and BI.</p>
       <div class="pill-row">
         <div class="pill">🎓 MS Data Science · Pace University</div>
-        <div class="pill">🏥 Tata Medical & Diagnostics</div>
-        <div class="pill">🏦 Wipro / ICICI Bank</div>
+        <div class="pill">🏥 Apria Healthcare</div>
+        <div class="pill">🏦 Genpact</div>
         <div class="pill">📍 Jersey City, NJ</div>
-        <div class="pill">✅ GPA 3.70</div>
+        <div class="pill">☁️ Azure · AWS</div>
       </div>
       <div class="cta-row">
-        <a class="btn btn-primary" href="mailto:krishnamaniyarkm22@gmail.com">📩 Contact Me</a>
+        <a class="btn btn-primary" href="mailto:maniyarkrishnakm22@gmail.com">📩 Contact Me</a>
         <a class="btn btn-outline" href="https://www.linkedin.com/in/krishnamaniyar/" target="_blank">LinkedIn ↗</a>
         <a class="btn btn-outline" href="https://github.com/krishnamaniyar2209" target="_blank">GitHub ↗</a>
       </div>
       <div class="metrics">
-        <div class="metric"><div class="metric-val">2+</div><div class="metric-label">Years experience</div></div>
-        <div class="metric"><div class="metric-val">11</div><div class="metric-label">Portfolio projects</div></div>
-        <div class="metric"><div class="metric-val">~50</div><div class="metric-label">DAX measures built</div></div>
+        <div class="metric"><div class="metric-val">3+</div><div class="metric-label">Years experience</div></div>
+        <div class="metric"><div class="metric-val">4.3M</div><div class="metric-label">Records/month pipelined</div></div>
+        <div class="metric"><div class="metric-val">12</div><div class="metric-label">Portfolio projects</div></div>
       </div>
     </div>
     <div class="hero-photo-wrap">
@@ -263,8 +286,8 @@
         <img src="profile.jpeg" alt="Krishna Maniyar"/>
       </div>
       <div class="photo-tag">
-        <strong>Open to DA roles</strong>
-        <span>SQL · Power BI · Python · Healthcare & Banking</span>
+        <strong>Open to Data Analyst roles</strong>
+        <span>Python · SQL · Power BI · Azure · Healthcare &amp; Finance</span>
       </div>
     </div>
   </div>
@@ -275,14 +298,15 @@
     <div class="section-label reveal">01 — ABOUT</div>
     <div class="about-grid reveal">
       <div class="about-cell">
-        <p>I'm a Data Analyst focused on turning raw data into <strong>clean, decision-ready insights</strong>. My industry experience includes building Power BI dashboards, writing SQL queries, validating reporting logic, and supporting cross-functional teams in <strong>banking and healthcare environments</strong>.</p>
-        <p>Beyond work, I've built 11 end-to-end projects spanning generative AI (RAG/LLMs), deep learning, forecasting, predictive analytics, and BI — all publicly available on GitHub. I enjoy combining <strong>technical depth with presentation quality</strong> so analytics feels useful, clear, and impactful.</p>
+        <p>I'm a Data Analyst with <strong>3+ years delivering healthcare and financial analytics</strong>. My work spans cloud reporting pipelines, transaction reconciliation, claims and denial analysis, and revenue monitoring — built with Python, SQL, Power BI, and Azure, and validated end to end before it reaches a stakeholder.</p>
+        <p>Day to day that means moving millions of records into governed datasets, modeling them dimensionally, and building dashboards and forecasts that finance and operations teams actually run on. I care as much about <strong>whether a number can be trusted</strong> as whether it looks good on a chart.</p>
+        <p>Outside of work I've built <strong>12 end-to-end projects</strong> covering generative AI (RAG, local LLMs), deep learning, time-series forecasting, predictive modeling, and BI — all public on GitHub, and all documented with the caveats included.</p>
       </div>
       <div class="about-facts">
-        <div class="fact"><div class="fact-label">Focus</div><div class="fact-val">DA roles — SQL, dashboards, reporting</div></div>
-        <div class="fact"><div class="fact-label">Industries</div><div class="fact-val">Healthcare analytics, banking, BI</div></div>
-        <div class="fact"><div class="fact-label">Strength</div><div class="fact-val">Insight-driven, stakeholder-ready work</div></div>
-        <div class="fact"><div class="fact-label">Location</div><div class="fact-val">Jersey City, NJ · Remote OK</div></div>
+        <div class="fact"><div class="fact-label">Focus</div><div class="fact-val">Data analysis, BI, cloud reporting</div></div>
+        <div class="fact"><div class="fact-label">Domains</div><div class="fact-val">Healthcare claims &amp; revenue, financial reconciliation</div></div>
+        <div class="fact"><div class="fact-label">Strength</div><div class="fact-val">Governed, validated, stakeholder-ready analytics</div></div>
+        <div class="fact"><div class="fact-label">Location</div><div class="fact-val">Jersey City, NJ · Remote &amp; hybrid OK</div></div>
       </div>
     </div>
   </div>
@@ -292,27 +316,62 @@
   <div class="container">
     <div class="section-label reveal">02 — SKILLS</div>
     <div class="section-title reveal">Technical Stack</div>
-    <div class="section-sub reveal">Tools and technologies across analytics, BI, ML, generative AI, and data engineering.</div>
+    <div class="section-sub reveal">Tools and technologies across analytics, BI, cloud data platforms, engineering, ML, and generative AI.</div>
     <div class="skills-grid reveal">
+
       <div class="skill-group">
-        <div class="skill-group-title">Programming</div>
+        <div class="skill-group-title">Programming &amp; Querying</div>
         <div class="badge-wrap">
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="">Python</span>
-          <span class="skill-badge"><img class="skill-logo" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/oracle.svg" style="filter:brightness(0) invert(.6)" alt="">Oracle SQL</span>
-          <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/en/d/dd/MySQL_logo.svg" alt="">MySQL</span>
+          <span class="skill-badge">SQL</span>
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="">PostgreSQL</span>
+          <span class="skill-badge">MongoDB</span>
         </div>
       </div>
+
       <div class="skill-group">
-        <div class="skill-group-title">Analysis & Visualization</div>
+        <div class="skill-group-title">Analytics &amp; Reporting</div>
         <div class="badge-wrap">
-          <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Pandas_logo.svg" alt="">Pandas</span>
-          <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/3/31/NumPy_logo_2020.svg" alt="">NumPy</span>
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="">Power BI</span>
+          <span class="skill-badge">DAX</span>
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png" alt="">Tableau</span>
-          <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" alt="">Excel</span>
+          <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" alt="">Advanced Excel</span>
+          <span class="skill-badge">SSRS</span>
+          <span class="skill-badge">SSAS</span>
+          <span class="skill-badge">KPI Development</span>
+          <span class="skill-badge">Forecasting</span>
         </div>
       </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Data Engineering &amp; Modeling</div>
+        <div class="badge-wrap">
+          <span class="skill-badge">dbt</span>
+          <span class="skill-badge">Apache Airflow</span>
+          <span class="skill-badge">Databricks</span>
+          <span class="skill-badge">PySpark</span>
+          <span class="skill-badge">Alteryx</span>
+          <span class="skill-badge">ETL / ELT</span>
+          <span class="skill-badge">Dimensional Modeling</span>
+          <span class="skill-badge">Data Validation</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Cloud &amp; Data Platforms</div>
+        <div class="badge-wrap">
+          <span class="skill-badge">Microsoft Azure</span>
+          <span class="skill-badge">Azure Data Factory</span>
+          <span class="skill-badge">Azure Data Lake Storage</span>
+          <span class="skill-badge">Azure Synapse</span>
+          <span class="skill-badge">AWS S3</span>
+          <span class="skill-badge">AWS Lambda</span>
+          <span class="skill-badge">Amazon Redshift</span>
+          <span class="skill-badge">Snowflake</span>
+          <span class="skill-badge">Google BigQuery</span>
+        </div>
+      </div>
+
       <div class="skill-group">
         <div class="skill-group-title">Machine Learning</div>
         <div class="badge-wrap">
@@ -321,51 +380,48 @@
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/1/10/PyTorch_logo_icon.svg" alt="">PyTorch</span>
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Keras_logo.svg" alt="">Keras</span>
           <span class="skill-badge">XGBoost</span>
-          <span class="skill-badge">Time Series</span>
+          <span class="skill-badge">Prophet</span>
+          <span class="skill-badge">Predictive Modeling</span>
+          <span class="skill-badge">Statistical Modeling</span>
         </div>
       </div>
+
       <div class="skill-group">
         <div class="skill-group-title">Generative AI</div>
         <div class="badge-wrap">
+          <span class="skill-badge">LLMs (Ollama)</span>
           <span class="skill-badge">RAG</span>
           <span class="skill-badge">FAISS (Vector DB)</span>
           <span class="skill-badge">Embeddings</span>
-          <span class="skill-badge">LLMs (Ollama)</span>
+          <span class="skill-badge">Prompt Engineering</span>
           <span class="skill-badge">NLP</span>
         </div>
       </div>
+
       <div class="skill-group">
-        <div class="skill-group-title">Tools & Engineering</div>
+        <div class="skill-group-title">DevOps &amp; Collaboration</div>
+        <div class="badge-wrap">
+          <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="">Git</span>
+          <span class="skill-badge">GitHub Actions</span>
+          <span class="skill-badge">Jenkins</span>
+          <span class="skill-badge">CI/CD</span>
+          <span class="skill-badge">Agile / Scrum</span>
+          <span class="skill-badge">SDLC</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Apps &amp; Tooling</div>
         <div class="badge-wrap">
           <span class="skill-badge"><img class="skill-logo" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/fastapi.svg" style="filter:brightness(0) invert(.6) sepia(1) hue-rotate(100deg)" alt="">FastAPI</span>
-          <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="">Git</span>
-          <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg" alt="">Jupyter</span>
           <span class="skill-badge">Streamlit</span>
+          <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg" alt="">Jupyter</span>
+          <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Pandas_logo.svg" alt="">Pandas</span>
+          <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/3/31/NumPy_logo_2020.svg" alt="">NumPy</span>
           <span class="skill-badge">REST APIs</span>
         </div>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Concepts</div>
-        <div class="badge-wrap">
-          <span class="skill-badge">ETL / Data Pipelines</span>
-          <span class="skill-badge">Data Cleaning</span>
-          <span class="skill-badge">Statistical Analysis</span>
-          <span class="skill-badge">Feature Engineering</span>
-          <span class="skill-badge">Dashboard Dev</span>
-          <span class="skill-badge">EDA</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Work Experience Tools</div>
-        <div class="badge-wrap">
-          <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="">Power BI</span>
-          <span class="skill-badge"><img class="skill-logo" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/oracle.svg" style="filter:brightness(0) invert(.6)" alt="">Oracle SQL</span>
-          <span class="skill-badge">DAX</span>
-          <span class="skill-badge">Data Validation</span>
-          <span class="skill-badge">KPI Reporting</span>
-          <span class="skill-badge">Report Automation</span>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -374,47 +430,60 @@
   <div class="container">
     <div class="section-label reveal">03 — EXPERIENCE</div>
     <div class="section-title reveal">Professional History</div>
-    <div class="section-sub reveal">Industry roles in healthcare BI and banking data analysis.</div>
+    <div class="section-sub reveal">3+ years building analytics platforms in healthcare claims and financial reconciliation.</div>
     <div class="timeline reveal">
+
       <div class="timeline-card">
         <div class="t-head">
           <div>
-            <div class="t-role">Data Analytics & BI Intern</div>
-            <div class="t-company">Tata Medical & Diagnostics Ltd</div>
+            <div class="t-role">Data Analyst</div>
+            <div class="t-company">Apria Healthcare · New York, USA</div>
           </div>
-          <div class="t-date">Jun 2025 – Aug 2025</div>
+          <div class="t-date">Sep 2025 – Present</div>
         </div>
+        <div class="t-project">PROJECT — <span>Enterprise Healthcare Claims &amp; Revenue Analytics Platform</span></div>
         <ul class="t-points">
-          <li>Sole Power BI developer for rural (CSR) and urban (for-profit) health centres, building dashboards that tracked service volume, revenue, and care-plan delivery for operational and financial visibility.</li>
-          <li>Engineered an automated PostgreSQL-to-Power BI pipeline (via SQL Developer) with a scheduled daily refresh, and wrote ~50 DAX measures across service, revenue, and operational KPIs.</li>
-          <li>Built the Kuppam (Andhra Pradesh) dashboard that was reviewed by the state Chief Minister's office, incorporating their feedback.</li>
-          <li>Cleaned and validated multi-source data, performed QA on reports, and authored end-to-end handover documentation.</li>
+          <li>Integrated <strong>2.5 million monthly claim and payment records</strong> through Azure Data Factory into Azure Data Lake Storage, reducing manual preparation effort by <strong>18%</strong>.</li>
+          <li>Processed raw claims in Databricks with PySpark, built reusable Python cleansing routines, and applied SQL to standardize payer, provider, authorization, and payment fields.</li>
+          <li>Structured curated datasets through dbt and dimensional modeling, publishing validated fact and dimension tables in Azure Synapse Analytics for consistent downstream reporting.</li>
+          <li>Developed Power BI dashboards with KPI development and drill-through analysis tracking denial categories, reimbursement timing, payer performance, and revenue-cycle exceptions.</li>
+          <li>Built revenue-leakage analytics, reimbursement-timing forecasts, and <strong>machine-learning models for denial-risk detection</strong>.</li>
+          <li>Versioned analytics assets in Git, automated validation with GitHub Actions, and controlled CI/CD promotion across development, testing, and production environments.</li>
+          <li>Generated dashboard narratives with <strong>LLMs and prompt engineering</strong>, reducing recurring commentary preparation time by <strong>15%</strong>.</li>
         </ul>
         <div class="badge-wrap">
+          <span class="skill-badge">Azure Data Factory</span><span class="skill-badge">Azure Synapse</span><span class="skill-badge">Databricks</span><span class="skill-badge">PySpark</span><span class="skill-badge">dbt</span>
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="">Power BI</span>
-          <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="">PostgreSQL</span>
-          <span class="skill-badge">DAX</span><span class="skill-badge">KPI Reporting</span><span class="skill-badge">Healthcare Analytics</span>
+          <span class="skill-badge">SQL</span><span class="skill-badge">GitHub Actions</span><span class="skill-badge">LLMs</span>
         </div>
       </div>
+
       <div class="timeline-card">
         <div class="t-head">
           <div>
-            <div class="t-role">Project Engineer (Application Support)</div>
-            <div class="t-company">Wipro Ltd · Client: ICICI Bank</div>
+            <div class="t-role">Data Analyst</div>
+            <div class="t-company">Genpact · India</div>
           </div>
-          <div class="t-date">May 2022 – May 2024</div>
+          <div class="t-date">Nov 2021 – Jul 2024</div>
         </div>
+        <div class="t-project">PROJECT — <span>Enterprise Financial Transaction Monitoring &amp; Reconciliation Analytics Platform</span></div>
         <ul class="t-points">
-          <li>Wrote and validated Oracle SQL queries (joins, subqueries, aggregations) against customer credit data to support credit card eligibility and credit-limit decisions.</li>
-          <li>Investigated declined applications by querying customer attributes (CIBIL score, PAN-linked credit history, existing obligations) to pinpoint which eligibility criteria were not met.</li>
-          <li>Used Excel (PivotTables, VLOOKUP) to clean, reconcile, and QA data across sources before handoff to the team lead and vendor.</li>
-          <li>Handled sensitive customer PII within the bank's access-controlled environment.</li>
+          <li>Extracted <strong>1.8 million monthly transaction records</strong> from PostgreSQL, staged files in AWS S3, and loaded curated datasets into Amazon Redshift, reducing preparation effort by <strong>18%</strong>.</li>
+          <li>Developed SQL queries to reconcile transaction and settlement records, with Python routines standardizing formats, flagging mismatches, and preparing validated exception datasets.</li>
+          <li>Orchestrated scheduled ingestion and reconciliation workflows through Apache Airflow, using AWS Lambda to validate incoming files and trigger controlled movement across processing stages.</li>
+          <li>Prepared reusable finance datasets in Alteryx, applying data modeling and data mining techniques to organize exception patterns for recurring reconciliation analysis.</li>
+          <li>Built Tableau dashboards and SSRS reports tracking mismatches, aging exceptions, and settlement status, improving issue visibility for finance teams by <strong>21%</strong>.</li>
+          <li>Validated multidimensional outputs in SSAS, then confirmed balances and management-report consistency with Advanced Excel PivotTable and VLOOKUP checks.</li>
+          <li>Applied <strong>statistical modeling</strong> to recurring mismatch patterns, improving reconciliation turnaround time by <strong>16%</strong>.</li>
         </ul>
         <div class="badge-wrap">
-          <span class="skill-badge"><img class="skill-logo" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/oracle.svg" style="filter:brightness(0) invert(.6)" alt="">Oracle SQL</span>
-          <span class="skill-badge">Excel</span><span class="skill-badge">Banking Analytics</span><span class="skill-badge">Data Validation</span>
+          <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="">PostgreSQL</span>
+          <span class="skill-badge">AWS S3</span><span class="skill-badge">Amazon Redshift</span><span class="skill-badge">Apache Airflow</span><span class="skill-badge">AWS Lambda</span><span class="skill-badge">Alteryx</span>
+          <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png" alt="">Tableau</span>
+          <span class="skill-badge">SSRS</span><span class="skill-badge">SSAS</span><span class="skill-badge">Jenkins</span>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -423,40 +492,69 @@
   <div class="container">
     <div class="section-label reveal">04 — PROJECTS</div>
     <div class="section-title reveal">Featured Work</div>
-    <div class="section-sub reveal">11 end-to-end projects spanning generative AI, deep learning, ML, forecasting, BI, and EDA.</div>
+    <div class="section-sub reveal">12 end-to-end projects spanning generative AI, deep learning, ML, forecasting, BI, and EDA — every number below is taken directly from each project's verified code and outputs. Expand "project details" on any card for the full story.</div>
     <div class="projects-grid reveal">
 
       <div class="project-card">
         <div class="proj-num">PROJECT 01</div>
         <div class="proj-title">RAG'n'Roll — Local RAG News Assistant</div>
         <div class="proj-type">Generative AI · RAG · LLM</div>
-        <p class="proj-desc">Fully local retrieval-augmented generation system: ingests live news, embeds it with MiniLM into a FAISS vector database, and generates source-cited answers via a local LLM (llama3.2) with an anti-hallucination prompt and freshness guard. Runs fully offline, no API keys.</p>
+        <p class="proj-desc">A fully local retrieval-augmented generation system: pulls live news from RSS feeds, embeds it into a FAISS vector index, and answers questions grounded <em>only</em> in the retrieved articles — every answer cites its sources. No API keys, no cloud, no data leaving the machine.</p>
+        <details class="proj-more">
+          <summary>project details</summary>
+          <ul>
+            <li><strong>End-to-end pipeline:</strong> RSS ingestion with trafilatura text extraction and boilerplate cleaning → SQLite (URL-deduplicated) → 1,200-character chunking with 200 overlap → MiniLM embeddings → FAISS cosine-similarity index.</li>
+            <li><strong>Anti-hallucination grounding:</strong> the system prompt restricts answers to retrieved sources and enforces inline [1], [2] citations mapped to real URLs.</li>
+            <li><strong>Freshness guard:</strong> detects time-sensitive queries ("today", "latest") and forces the model to disclaim recency when retrieved sources lack publication dates — a deliberate defense against confidently wrong "today's news" answers.</li>
+            <li><strong>Streamlit UI</strong> with tunable top-k retrieval, one-click index rebuild (ingest → embed), source cards with similarity scores, and a Relevance@k metric.</li>
+          </ul>
+        </details>
         <div class="badge-wrap">
-          <span class="skill-badge">FAISS</span><span class="skill-badge">Sentence-Transformers</span><span class="skill-badge">Ollama LLM</span>
+          <span class="skill-badge">FAISS</span><span class="skill-badge">Sentence-Transformers</span><span class="skill-badge">Ollama LLM</span><span class="skill-badge">SQLite</span>
         </div>
-        <div class="proj-links"><a class="link-chip" href="https://github.com/krishnamaniyar2209" target="_blank">↗ github</a></div>
+        <div class="proj-links"><a class="link-chip" href="https://github.com/krishnamaniyar2209/ragnroll" target="_blank">↗ github</a></div>
       </div>
 
       <div class="project-card">
         <div class="proj-num">PROJECT 02</div>
         <div class="proj-title">Robust Deepfake Detection</div>
         <div class="proj-type">Deep Learning · Computer Vision</div>
-        <p class="proj-desc">Co-developed an end-to-end pipeline training 5 architectures (ResNet-18, EfficientNet-B4, R3D-18, ViT-B/16, R3D-18+RAFT) plus a soft-vote ensemble on FaceForensics++; benchmarked zero-shot generalization on Celeb-DF (6,529 videos), with the ensemble reaching 0.89 AUC.</p>
+        <p class="proj-desc">4-person analytics capstone (co-developer of the ML pipeline). Binary deepfake detection focused on the metric that actually matters for deployment: zero-shot generalization to unseen datasets, not just in-dataset accuracy.</p>
+        <details class="proj-more">
+          <summary>project details</summary>
+          <ul>
+            <li><strong>5 architectures trained</strong> in PyTorch — ResNet-18, EfficientNet-B4, R3D-18 (3D-CNN), ViT-B/16, and R3D-18 + RAFT optical flow — on 4,200 FaceForensics++ videos with 224×224 face crops and class-weighted loss.</li>
+            <li><strong>Zero-shot cross-dataset test</strong> on 6,529 unseen Celeb-DF v2 videos exposed generalization gaps up to 0.24 AUC hiding behind near-perfect (~1.0) in-dataset scores.</li>
+            <li><strong>Soft-vote ensemble won:</strong> 0.892 cross-dataset AUC with the smallest generalization gap (0.109), beating every individual model.</li>
+            <li><strong>ViT-B/16 was the best single model</strong> (0.884 AUC) — attention-based features transferred to unseen data better than 3D-CNNs, which overfit dataset-specific artifacts.</li>
+            <li><strong>Optical flow rescued generalization:</strong> adding RAFT to R3D-18 lifted cross-dataset AUC from 0.756 to 0.802 and cut its generalization gap by 35%, while lowering threshold-based accuracy — a calibration shift rather than a feature failure.</li>
+          </ul>
+        </details>
         <div class="badge-wrap">
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/1/10/PyTorch_logo_icon.svg" alt="">PyTorch</span>
           <span class="skill-badge">Vision Transformer</span><span class="skill-badge">Ensemble</span>
         </div>
-        <div class="proj-links"><a class="link-chip" href="https://github.com/krishnamaniyar2209" target="_blank">↗ github</a></div>
+        <div class="proj-links"><a class="link-chip" href="https://github.com/krishnamaniyar2209/deepfake-detection" target="_blank">↗ github</a></div>
       </div>
 
       <div class="project-card">
         <div class="proj-num">PROJECT 03</div>
         <div class="proj-title">Sales Performance Dashboard</div>
         <div class="proj-type">Business Intelligence · Power BI</div>
-        <p class="proj-desc">Interactive Power BI dashboard tracking revenue, profit margin, and customer segmentation. Built 10+ DAX measures with drill-through filters for executive and operational reporting.</p>
+        <p class="proj-desc">Four-page interactive Power BI dashboard analyzing $24.9M revenue, $10.5M profit, and 25.2K orders on the AdventureWorks dataset — executive KPIs, geographic analysis, product detail, and customer segmentation built for self-serve decision-making.</p>
+        <details class="proj-more">
+          <summary>project details</summary>
+          <ul>
+            <li><strong>Star-schema data model:</strong> 2 fact tables (sales, returns) + 6 dimension tables, shaped with Power Query.</li>
+            <li><strong>41 DAX measures</strong> including time intelligence (YTD, 10-day and 90-day rolling), previous-month comparisons, +10% targets, and target-gap KPIs.</li>
+            <li><strong>What-if price-adjustment parameter</strong> models adjusted revenue and profit under different pricing scenarios, live on the product page.</li>
+            <li><strong>Interactive UX:</strong> drill-through product pages, disconnected-slicer dynamic metric selection, KPI-vs-target gauges, and an Azure Map page with continent-level filters.</li>
+            <li><strong>Customer analytics:</strong> 17.4K unique customers at $1,431 average revenue each, segmented by income and occupation with a top-100 leaderboard.</li>
+          </ul>
+        </details>
         <div class="badge-wrap">
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="">Power BI</span>
-          <span class="skill-badge">DAX</span><span class="skill-badge">Dashboard</span>
+          <span class="skill-badge">DAX</span><span class="skill-badge">Power Query</span><span class="skill-badge">Data Modeling</span>
         </div>
         <div class="proj-links"><a class="link-chip" href="https://github.com/krishnamaniyar2209/Sales-Performance-Dashboard-PowerBI" target="_blank">↗ github</a></div>
       </div>
@@ -465,7 +563,16 @@
         <div class="proj-num">PROJECT 04</div>
         <div class="proj-title">NYC Electricity Forecasting</div>
         <div class="proj-type">Time Series · Facebook Prophet</div>
-        <p class="proj-desc">Forecasted daily NYC electricity demand across all 5 boroughs from 553K+ billing records using Prophet, with IQR anomaly detection, feature engineering, and custom seasonality tuning that improved daily R-squared from 0.63 to 0.72.</p>
+        <p class="proj-desc">Forecasted NYC electricity consumption across all 5 boroughs with Facebook Prophet, spanning 16 years of NYC Open Data (Dec 2009 – Oct 2025) at daily, monthly, and yearly horizons.</p>
+        <details class="proj-more">
+          <summary>project details</summary>
+          <ul>
+            <li><strong>Data engineering:</strong> expanded 553K variable-length billing records into 10.8M+ daily records (KWH ÷ billing days), then re-aggregated into clean daily/monthly/yearly series with automatic time-unit detection.</li>
+            <li><strong>Model tuning:</strong> compared linear, logistic, and flat growth plus custom seasonality (Fourier orders, changepoints) — in-sample daily fit improved from R² 0.63 to 0.72 with MAE down 12% (289K → 254K KWH).</li>
+            <li><strong>Borough-level models:</strong> 5 independent Prophet models reached R² up to 0.74 (Bronx), all capturing NYC's recurring summer consumption peaks.</li>
+            <li><strong>Honest metrics:</strong> documented that every figure is in-sample fit rather than holdout forecast accuracy, and explained why MAPE misleads on this data (near-zero early records) — leading with MAE and R² instead.</li>
+          </ul>
+        </details>
         <div class="badge-wrap">
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="">Python</span>
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Pandas_logo.svg" alt="">Pandas</span>
@@ -478,7 +585,17 @@
         <div class="proj-num">PROJECT 05</div>
         <div class="proj-title">Bank Marketing Classification</div>
         <div class="proj-type">Predictive Analytics · ML</div>
-        <p class="proj-desc">Analyzed 41K customer records (89/11 class imbalance) to predict term-deposit subscriptions. Benchmarked Logistic Regression, Random Forest, and XGBoost; imbalance-aware tuning lifted minority-class recall from ~0.42 to ~0.92 (AUC 0.945).</p>
+        <p class="proj-desc">Predicted term-deposit subscriptions on the UCI Bank Marketing dataset — 41,188 records with an 88.7/11.3 class imbalance — by benchmarking 6 classifiers, then retuning the top models to prioritize catching actual subscribers.</p>
+        <details class="proj-more">
+          <summary>project details</summary>
+          <ul>
+            <li><strong>6 models compared</strong> (Logistic Regression, Naive Bayes, KNN, Decision Tree, Random Forest, XGBoost) on 53 one-hot-encoded features with a stratified 70/30 split.</li>
+            <li><strong>XGBoost best by default</strong> (F1 0.590, AUC 0.945) — and the analysis shows why raw accuracy is misleading when 89% of customers say "no".</li>
+            <li><strong>Imbalance-aware tuning</strong> (class weights, scale_pos_weight) lifted minority-class recall from 0.55 to 0.93 at AUC 0.949 — the models now catch the large majority of true subscribers.</li>
+            <li><strong>Translated to campaign terms:</strong> tuning converts 628 missed subscribers into 101, at a cost of roughly 3.2 extra calls per additional subscriber won — the tradeoff framed as a business decision, not a metric.</li>
+            <li><strong>Leakage awareness:</strong> flagged call duration as the strongest predictor that's only known <em>after</em> a call ends — documented for exclusion in any deployable version.</li>
+          </ul>
+        </details>
         <div class="badge-wrap">
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="">Python</span>
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="">Scikit-learn</span>
@@ -491,7 +608,17 @@
         <div class="proj-num">PROJECT 06</div>
         <div class="proj-title">EV Adoption Analysis (Washington State)</div>
         <div class="proj-type">Market Analysis · EDA</div>
-        <p class="proj-desc">Analyzed 200K+ EV registration records to surface market trends, manufacturer dominance (Tesla ~28% share), and geographic concentration (King County ~49%); flagged a near-deterministic Make/Model-to-EV-type relationship as data leakage behind a 99% classifier accuracy.</p>
+        <p class="proj-desc">Exploratory analysis and predictive modeling on 200K+ Washington State EV registration records — adoption trends, market concentration, and BEV vs. PHEV behavior, with an honest read on a suspiciously high classifier score.</p>
+        <details class="proj-more">
+          <summary>project details</summary>
+          <ul>
+            <li><strong>Market structure:</strong> Tesla leads with 88,083 registrations (44% of the fleet), ahead of Nissan and Chevrolet; King County holds 51.4% of all EVs; adoption accelerates sharply after 2015.</li>
+            <li><strong>Range gap quantified:</strong> BEVs average 197 miles of electric range vs. 31 miles for PHEVs across 90K+ range-valid records.</li>
+            <li><strong>Sampling bias caught:</strong> the range-valid subset retains ~100% of PHEVs but only 30% of BEVs, because BEV ranges are more often unresearched — so subset composition stats understate BEVs, and the analysis reports fleet-level and subset-level figures separately.</li>
+            <li><strong>Classification:</strong> Random Forest predicts EV type at 98.9% accuracy — and the analysis explains why: Make and Model account for 81% of feature importance, so the score reflects feature–target dependence, not model magic.</li>
+            <li><strong>Regression baseline</strong> for electric range (R² 0.27, MAE ≈ 73 mi) documented as the honest starting point for future feature engineering.</li>
+          </ul>
+        </details>
         <div class="badge-wrap">
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="">Python</span>
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Pandas_logo.svg" alt="">Pandas</span>
@@ -502,26 +629,44 @@
 
       <div class="project-card">
         <div class="proj-num">PROJECT 07</div>
-        <div class="proj-title">NYC Food Inspection Grade Prediction</div>
+        <div class="proj-title">NY Food Inspection Grade Prediction</div>
         <div class="proj-type">Classification · Public Data</div>
-        <p class="proj-desc">Engineered 8 features and compared 6 classifiers to predict A/B/C inspection grades for 41K NYC establishments; identified and corrected target leakage, reporting an honest 79.7% accuracy / 0.80 F1 with a tuned Random Forest.</p>
+        <p class="proj-desc">Predicts food-establishment inspection grades (A/B/C) across all 62 New York State counties from 41K records — built deliberately leakage-free with prior-only history features and establishment-grouped splits, and openly documents the leakage it found and fixed.</p>
+        <details class="proj-more">
+          <summary>project details</summary>
+          <ul>
+            <li><strong>Leakage found &amp; fixed:</strong> an early version scored ~91% — inflated by history features that included the predicted inspection and by random row splits. Rebuilt with prior-only features and GroupShuffleSplit/GroupKFold (verified zero establishment overlap), the honest benchmark is 79.7% accuracy / 0.80 F1 against a 52.7% majority-class baseline.</li>
+            <li><strong>8 engineered features;</strong> an establishment's previous grade is the strongest legitimate predictor (36.8% importance), followed by prior-only failure rate (24.6%) — inspection history is 84% of the total signal.</li>
+            <li><strong>6 classifiers compared</strong> + GridSearchCV tuning, cutting the train–test overfitting gap from 0.24 to under 0.04 while improving test accuracy.</li>
+            <li><strong>Interpretability over accuracy:</strong> a depth-5 Decision Tree matched Random Forest (0.795 vs 0.797) with higher precision — recommended as the deployment candidate because every prediction can be traced through five human-readable splits.</li>
+          </ul>
+        </details>
         <div class="badge-wrap">
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="">Python</span>
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="">Scikit-learn</span>
           <span class="skill-badge">Classification</span>
         </div>
-        <div class="proj-links"><a class="link-chip" href="https://github.com/krishnamaniyar2209/nyc-food-inspection-grade-prediction" target="_blank">↗ github</a></div>
+        <div class="proj-links"><a class="link-chip" href="https://github.com/krishnamaniyar2209/ny-food-inspection-grade-prediction" target="_blank">↗ github</a></div>
       </div>
 
       <div class="project-card">
         <div class="proj-num">PROJECT 08</div>
         <div class="proj-title">Diabetes Progression Prediction</div>
         <div class="proj-type">Healthcare Analytics · Regression</div>
-        <p class="proj-desc">Built regression models on clinical healthcare data to estimate disease progression, comparing Ridge, Lasso, and Gradient Boosting with cross-validated evaluation.</p>
+        <p class="proj-desc">Regression study on the classic Stanford diabetes dataset (442 patients, 10 clinical features) predicting one-year disease progression — building up from single-feature baselines to a full model and an XGBoost comparison.</p>
+        <details class="proj-more">
+          <summary>project details</summary>
+          <ul>
+            <li><strong>Systematic build-up:</strong> best single feature is BMI (R² 0.34); best pair — BMI + log serum triglycerides — from all 45 combinations (R² 0.46); all 10 features together reach R² 0.52.</li>
+            <li><strong>Learning-curve analysis</strong> across training sizes n = 20–200 quantifies the bias–variance tradeoff: validation error is 8× training error at n = 20 (two observations per parameter) and nearly converges by n = 200.</li>
+            <li><strong>Simpler model won:</strong> benchmarked XGBoost with 5-fold cross-validation — Linear Regression generalized better (CV R² 0.478 vs. 0.423) and won four of five folds with 31% lower variance on this small, largely linear dataset.</li>
+            <li><strong>Multicollinearity documented:</strong> cholesterol markers correlate at 0.90, which is why several coefficients carry counterintuitive signs — Ridge/Lasso flagged as the natural next step.</li>
+          </ul>
+        </details>
         <div class="badge-wrap">
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="">Python</span>
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="">Scikit-learn</span>
-          <span class="skill-badge">Regression</span>
+          <span class="skill-badge">XGBoost</span>
         </div>
         <div class="proj-links"><a class="link-chip" href="https://github.com/krishnamaniyar2209/diabetes-regression-analysis" target="_blank">↗ github</a></div>
       </div>
@@ -529,12 +674,21 @@
       <div class="project-card">
         <div class="proj-num">PROJECT 09</div>
         <div class="proj-title">Flower Image Classification</div>
-        <div class="proj-type">Deep Learning · CNN · Transfer Learning</div>
-        <p class="proj-desc">CNN image classifier using TensorFlow/Keras with ResNet50 transfer learning. Achieved 93% test accuracy and 0.93 macro F1-score after hyperparameter optimization.</p>
+        <div class="proj-type">Deep Learning · Transfer Learning</div>
+        <p class="proj-desc">Transfer learning with pre-trained ResNet50 (ImageNet) for 5-class flower classification on 4.3K images — implemented twice, in TensorFlow/Keras and PyTorch, on an identical stratified split.</p>
+        <details class="proj-more">
+          <summary>project details</summary>
+          <ul>
+            <li><strong>PyTorch run scored higher:</strong> 88.1% test accuracy (F1 0.88) vs. TensorFlow's 86.0% across 1,080 test images.</li>
+            <li><strong>Not a framework benchmark:</strong> the two runs differ in augmentation, classifier head, preprocessing, and epoch count — so the result reflects training recipe, not library. Documented explicitly rather than claimed as a win.</li>
+            <li><strong>The real finding:</strong> the TensorFlow head carried <strong>51× more trainable parameters</strong> (525,829 vs 10,245) and still finished behind — on a frozen backbone with under 3,000 training images, augmentation and training duration mattered far more than classifier capacity.</li>
+            <li><strong>Error analysis:</strong> confusion matrices show rose accounts for 19 of the 23 additional correct predictions — the entire gap lives in one class, with rose most often misread as tulip.</li>
+          </ul>
+        </details>
         <div class="badge-wrap">
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" alt="">TensorFlow</span>
-          <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Keras_logo.svg" alt="">Keras</span>
-          <span class="skill-badge">CNN</span>
+          <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/1/10/PyTorch_logo_icon.svg" alt="">PyTorch</span>
+          <span class="skill-badge">ResNet50</span>
         </div>
         <div class="proj-links"><a class="link-chip" href="https://github.com/krishnamaniyar2209/flower-image-classification" target="_blank">↗ github</a></div>
       </div>
@@ -543,11 +697,20 @@
         <div class="proj-num">PROJECT 10</div>
         <div class="proj-title">NYC Yellow Taxi EDA (2020)</div>
         <div class="proj-type">Exploratory Data Analysis</div>
-        <p class="proj-desc">Comprehensive EDA on 9.3M+ NYC taxi trip records, uncovering demand patterns, fare anomalies, and COVID-19 ridership impact (trip volume -88.6%, median tip rate -72.1%) through 20+ visualizations.</p>
+        <p class="proj-desc">EDA on 9.6M NYC Yellow Taxi trips from 2020 — the year COVID-19 reshaped the city — combining classic Pandas analysis with TensorFlow Data Validation (TFDV) for statistical profiling and anomaly detection.</p>
+        <details class="proj-more">
+          <summary>project details</summary>
+          <ul>
+            <li><strong>COVID impact quantified</strong> (March → May 2020): trips collapsed −88.6%, average speed jumped +37.3% as streets emptied, and the median tip rate fell −72.1%.</li>
+            <li><strong>Two-phase pattern found:</strong> a January-vs-March control showed ridership already down 53% while every per-trip characteristic held within 3% — volume collapsed first, behavior changed second.</li>
+            <li><strong>A real data-quality lesson:</strong> TFDV schema validation passed May 2020 with <em>zero anomalies</em> despite 88.6% fewer trips and a 72% tipping collapse — demonstrating that schema checks catch structural drift, not distributional drift.</li>
+            <li><strong>Feature engineering + ranking:</strong> built trip-duration, speed, and tip-rate features; mutual-information analysis identified trip distance as the strongest independent predictor of duration, after discarding a circular one.</li>
+          </ul>
+        </details>
         <div class="badge-wrap">
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="">Python</span>
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Pandas_logo.svg" alt="">Pandas</span>
-          <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg" alt="">Matplotlib</span>
+          <span class="skill-badge">TFDV</span>
         </div>
         <div class="proj-links"><a class="link-chip" href="https://github.com/krishnamaniyar2209/nyc-taxi-eda-2020" target="_blank">↗ github</a></div>
       </div>
@@ -556,7 +719,16 @@
         <div class="proj-num">PROJECT 11</div>
         <div class="proj-title">NYC Taxi Trip Duration Prediction</div>
         <div class="proj-type">Deep Learning · Regression</div>
-        <p class="proj-desc">Predicted NYC taxi trip durations using deep learning regression with geospatial features, time-based variables, and neural network architectures in TensorFlow.</p>
+        <p class="proj-desc">Neural-network regression predicting NYC taxi trip duration from trip and weather features — designed leakage-free: quantities known only after a trip ends (fare, tips, average speed) are deliberately excluded, so the errors reflect realistic prediction at pickup time.</p>
+        <details class="proj-more">
+          <summary>project details</summary>
+          <ul>
+            <li><strong>Data engineering:</strong> cleaned 6.4M Jan-2020 Yellow Taxi trips and merged them with daily Meteostat weather; trained on a 314K-row sample with 14 pickup-time features (trip, time-of-day, and 8 weather variables).</li>
+            <li><strong>3 architectures × 2 optimizers</strong> compared in TensorFlow/Keras: linear baseline, MLP, and a deeper DNN with dropout, each trained with Adam and RMSprop under a time-ordered split.</li>
+            <li><strong>Best model:</strong> MLP + Adam at 3.31 minutes validation MAE — 22% better than the linear baseline (4.22 min), confirming a real but moderate non-linear relationship.</li>
+            <li><strong>Weather was effectively a date proxy:</strong> only 31 distinct daily observations across 314K rows, so the model extrapolates on every weather feature during validation — documented as a limitation rather than reported as a win.</li>
+          </ul>
+        </details>
         <div class="badge-wrap">
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" alt="">TensorFlow</span>
           <span class="skill-badge"><img class="skill-logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Pandas_logo.svg" alt="">Pandas</span>
@@ -565,13 +737,33 @@
         <div class="proj-links"><a class="link-chip" href="https://github.com/krishnamaniyar2209/nyc-taxi-dl" target="_blank">↗ github</a></div>
       </div>
 
+      <div class="project-card">
+        <div class="proj-num">PROJECT 12</div>
+        <div class="proj-title">InsightFOX — AI Research Assistant</div>
+        <div class="proj-type">Generative AI · Full-Stack</div>
+        <p class="proj-desc">AI-powered research assistant with a decoupled FastAPI + Streamlit architecture: scrapes real-time news via headless Selenium, rates each result's relevance with a local LLM, and answers questions grounded in the retrieved context — with spoken responses.</p>
+        <details class="proj-more">
+          <summary>project details</summary>
+          <ul>
+            <li><strong>LLM-as-judge scoring:</strong> Llama 3.2 (via Ollama) rates every retrieved result 1–5 for relevance and quality, rendered as ranked star ratings in the chat UI.</li>
+            <li><strong>Resilient local inference:</strong> timeout- and retry-guarded model calls with structured Loguru logging across the scraper, API, and UI layers.</li>
+            <li><strong>Full-stack design:</strong> FastAPI backend (search, chat, and query-rating endpoints) consumed by a Streamlit chat frontend with configurable result counts, a chatbot-only mode, and gTTS text-to-speech playback.</li>
+          </ul>
+        </details>
+        <div class="badge-wrap">
+          <span class="skill-badge"><img class="skill-logo" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/fastapi.svg" style="filter:brightness(0) invert(.6) sepia(1) hue-rotate(100deg)" alt="">FastAPI</span>
+          <span class="skill-badge">Streamlit</span><span class="skill-badge">Ollama LLM</span><span class="skill-badge">Selenium</span>
+        </div>
+        <div class="proj-links"><a class="link-chip" href="https://github.com/krishnamaniyar2209/InsightFOX" target="_blank">↗ github</a></div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <section id="certifications">
   <div class="container">
-    <div class="section-label reveal">05 — CERTIFICATIONS</div>
+    <div class="section-label reveal">05 — CERTIFICATIONS &amp; EDUCATION</div>
     <div class="section-title reveal">Credentials</div>
     <div class="section-sub reveal">Industry certifications from Microsoft, Google, and Maven Analytics.</div>
     <div class="cert-grid reveal">
@@ -583,12 +775,27 @@
       <div class="cert-card">
         <div class="cert-issuer">Google · Coursera</div>
         <div class="cert-name">Data Analytics Professional Certificate</div>
-        <div class="cert-detail">Foundations: Data, Data, Everywhere — Google's core data analytics program.</div>
+        <div class="cert-detail">Google's 8-course program covering data cleaning, analysis, visualization, SQL, and R.</div>
       </div>
       <div class="cert-card">
-        <div class="cert-issuer">Udemy · Maven Analytics</div>
+        <div class="cert-issuer">Maven Analytics</div>
         <div class="cert-name">Microsoft Power BI Desktop for Business Intelligence</div>
-        <div class="cert-detail">17-hour Power BI course — DAX, data modeling, and dashboard design.</div>
+        <div class="cert-detail">DAX, data modeling, and dashboard design for business intelligence.</div>
+      </div>
+    </div>
+
+    <div class="section-title reveal" style="margin-top:48px">Education</div>
+    <div class="section-sub reveal">Graduate and undergraduate study in data science and information technology.</div>
+    <div class="edu-grid reveal">
+      <div class="edu-card">
+        <div class="edu-degree">Master of Science in Data Science</div>
+        <div class="edu-school">Pace University</div>
+        <div class="edu-loc">New York, USA</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Bachelor of Engineering in Information Technology</div>
+        <div class="edu-school">Vidyavardhini College of Engineering and Technology</div>
+        <div class="edu-loc">Maharashtra, India</div>
       </div>
     </div>
   </div>
@@ -600,12 +807,12 @@
     <div class="contact-wrap reveal">
       <div class="contact-top">
         <div class="contact-heading">Let's<br><em>Connect</em></div>
-        <div class="contact-sub">Available for full-time DA roles, internships, and analytics opportunities.</div>
+        <div class="contact-sub">Open to Data Analyst roles and analytics opportunities across healthcare, finance, and BI.</div>
       </div>
       <div class="contact-grid">
         <div class="contact-cell">
           <div class="contact-label">Email</div>
-          <a class="contact-val" href="mailto:krishnamaniyarkm22@gmail.com">krishnamaniyarkm22@gmail.com</a>
+          <a class="contact-val" href="mailto:maniyarkrishnakm22@gmail.com">maniyarkrishnakm22@gmail.com</a>
         </div>
         <div class="contact-cell">
           <div class="contact-label">LinkedIn</div>
@@ -617,7 +824,7 @@
         </div>
         <div class="contact-cell">
           <div class="contact-label">Location</div>
-          <div class="contact-val" style="color:var(--muted)">Jersey City, NJ · Remote & Hybrid OK</div>
+          <div class="contact-val" style="color:var(--muted)">Jersey City, NJ · Remote &amp; Hybrid OK</div>
         </div>
       </div>
     </div>
